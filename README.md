@@ -1,24 +1,17 @@
-# README
+# Comisionista Online
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Comisionista Online busca dar soporte a los comisionistas de bienes inmuebles para facilitar su labor y potenciar sus ventas y comisiones.
 
-Things you may want to cover:
+La apliación está hecha en el framework Ruby on Rails con las siguiente especificaciones:
 
-* Ruby version
+* Ruby version: 2.4.3
 
-* System dependencies
+* Rails version: 5.1.4
 
-* Configuration
+* System dependencies: Todas las gemas de RoR
 
-* Database creation
+* Configuration: Hasta ahora no se están usando variables de entorno dentro de la app.
 
-* Database initialization
+* Database creation: rake db:create && rake db:migrate
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Run: rails server
