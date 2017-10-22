@@ -2,7 +2,7 @@
 
 Comisionista Online busca dar soporte a los comisionistas de bienes inmuebles para facilitar su labor y potenciar sus ventas y comisiones.
 
-La apliación está hecha en el framework Ruby on Rails con las siguiente especificaciones:
+La apliación está hecha en el framework Ruby on Rails con las siguientes especificaciones:
 
 * Ruby version: 2.4.3
 
