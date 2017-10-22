@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Comisionista Online</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="icon" type="image/png" href="<%= asset_url 'favicon.png' %>"/>
+  </head>
+
+  <body class="home-page">
+    <%#= render 'layouts/navbar_public' %>
+
+    <div class="container-fluid">
+      <section class="row section-1">
+        <div class="col-md-4 col-sm-12 col-md-offset-1 presentation">
+          <h1>Bienvenido a su Comisionista Online</h1>
+          <hr class="separator">
+          <p>La solución informática para la administración de sus clientes, inversionistas y proyectos</p>
+          <br/>
+        </div>
+        <div class="col-md-8 col-sm-12 image-container">
+          <%= image_tag 'building.png' %>
+        </div>
+      </section>
+
+      <section class="row section-2">
+        <div class="col-md-5 col-md-offset-1 col-sm-12 presentation">
+          <h1>Header carreta 2</h1>
+          <hr class="separator">
+          <p>Párrafo carreta 2</p>
+        </div>
+        <div class="col-md-6 col-sm-12 image-container">
+          <%= image_tag 'computer1.svg' %>
+        </div>
+      </section>
+
+      <section class="row section-3">
+        <div class="col-md-6 col-sm-12 image-container">
+          <%= image_tag 'computer2.svg' %>
+        </div>
+        <div class="col-md-5 col-md-offset-1 col-sm-12 presentation">
+          <h1>Carreta get started</h1>
+          <hr class="separator">
+          <p>
+            <span class="number-square">1</span>Paso 1<br/>
+            <span class="number-square">2</span>Paso 2<br/>
+            <span class="number-square">3</span>Paso 3<br/>
+          </p>
+        </div>
+      </section>
+
+      <section class="row section-5">
+        <div class="col-md-10 col-md-offset-2 col-md-pull-1 col-sm-12 no-padding">
+          <span class="benefits">Beneficios</span>
+          <br/>
+          <hr class="separator green">
+          <h1>Beneficios header carreta</h1>
+          <br/><br/>
+          <div class="row">
+            <div class="col-md-4 col-sm-6 col-xs-12 panel-wrapper">
+              <div class="panel">
+                <i class="fa fa-credit-card green"></i>
+                <h2>Header 1</h2>
+                <br/>
+                <p>Paragraph 1</p>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 panel-wrapper">
+              <div class="panel">
+                <i class="fa fa-credit-card green"></i>
+                <h2>Header 1</h2>
+                <br/>
+                <p>Paragraph 1</p>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 panel-wrapper">
+              <div class="panel">
+                <i class="fa fa-credit-card green"></i>
+                <h2>Header 1</h2>
+                <br/>
+                <p>Paragraph 1</p>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 panel-wrapper">
+              <div class="panel">
+                <i class="fa fa-credit-card green"></i>
+                <h2>Header 1</h2>
+                <br/>
+                <p>Paragraph 1</p>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 panel-wrapper">
+              <div class="panel">
+                <i class="fa fa-credit-card green"></i>
+                <h2>Header 1</h2>
+                <br/>
+                <p>Paragraph 1</p>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 panel-wrapper">
+              <div class="panel">
+                <i class="fa fa-credit-card green"></i>
+                <h2>Header 1</h2>
+                <br/>
+                <p>Paragraph 1</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="row section-6">
+        <div class="col-xs-12 presentation">
+          <h1>Tyr application</h1>
+          <p>Carreta try</p>
+          <br/>
+          <%#= link_to t('home.sign_up'), new_registration_url(:user, subdomain: 'www'), class: 'btn btn-primary' %>
+        </div>
+      </section>
+    </div>
+
+    <%#= render 'layouts/copyright_footer' %>
+
+    <%#= render 'shared/change_language_modal' %>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </body>
+</html>
