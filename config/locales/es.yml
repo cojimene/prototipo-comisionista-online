@@ -1,0 +1,61 @@
+es:
+  activerecord:
+    models:
+      user:
+        one: Usuario
+        other: Usuarios
+    attributes:
+      user:
+        confirmation_sent_at: Fecha de envío de confirmación
+        confirmation_token: Código de confirmación
+        confirmed_at: Fecha de confirmación
+        created_at: Fecha de creación
+        current_password: Contraseña actual
+        current_sign_in_at: Fecha del ingreso actual
+        current_sign_in_ip: IP del ingreso actual
+        email: Email
+        encrypted_password: Contraseña cifrada
+        failed_attempts: Intentos fallidos
+        last_sign_in_at: Fecha del último ingreso
+        last_sign_in_ip: IP del último ingreso
+        locked_at: Fecha de bloqueo
+        password: Contraseña
+        password_confirmation: Confirmación de la contraseña
+        remember_created_at: Fecha de 'Recordarme'
+        remember_me: Recordarme
+        reset_password_sent_at: Fecha de envío de código para contraseña
+        reset_password_token: Código para restablecer contraseña
+        sign_in_count: Cantidad de ingresos
+        unconfirmed_email: Email no confirmado
+        unlock_token: Código de desbloqueo
+        updated_at: Fecha de actualización
+    errors:
+      messages:
+        model_invalid: "La validación ha fallado: %{errors}"
+        inclusion: "no está incluido(a) en la lista"
+        exclusion: "es reservado(a)"
+        invalid: "no es válido(a)"
+        confirmation: "no coincide %{attribute}"
+        accepted: "debe ser aceptado"
+        empty: "no puede estar vacío"
+        blank: "no puede ser vacío"
+        present: "debe ser vacío"
+        too_long:
+          one: "es muy largo(a) (máximo 1 caracter)"
+          other: "es muy largo(a) (máximo %{count} caracteres)"
+        too_short:
+          one: "es muy corto(a) (mínimo 1 caracter)"
+          other: "es muy corto(a) (mínimo %{count} caracter)"
+        wrong_length:
+          one: "tiene longitud incorrecta (debe ser de 1 caracter)"
+          other: "tiene longitud incorrecta (debe ser de %{count} caracteres)"
+        not_a_number: "no es un número"
+        not_an_integer: "debe ser un entero"
+        greater_than: "debe ser mayor a %{count}"
+        greater_than_or_equal_to: "debe ser mayor o igual a %{count}"
+        equal_to: "debe ser igual a %{count}"
+        less_than: "debe ser menor a %{count}"
+        less_than_or_equal_to: "debe ser menor o igual a %{count}"
+        other_than: "debe ser diferente a %{count}"
+        odd: "debe ser impar"
+        even: "debe ser par"
