@@ -40,6 +40,8 @@ es:
         experience: Años de experiencia
         city: Ciudad
         phone: Teléfono
+        avatar: Imagen perfil
+        role: Rol
     errors:
       messages:
         model_invalid: "La validación ha fallado: %{errors}"

@@ -1,39 +1,48 @@
-<p id="notice"><%= notice %></p>
+<div class="col-sm-8 col-sm-offset-2">
+  <p id="notice"><%= notice %></p>
+  Esta mierda le edito luego
 
-<p>
-  <strong>First name:</strong>
-  <%= @user_profile.first_name %>
-</p>
+  <p>
+    <%= link_to @user_profile.avatar.url, data: { lightbox: true, title: 'Foto de peril' } do %>
+      <%= image_tag @user_profile.avatar.url(:medium) %>
+    <% end %>
+  </p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user_profile.last_name %>
-</p>
+  <p>
+    <strong>First name:</strong>
+    <%= @user_profile.first_name %>
+  </p>
 
-<p>
-  <strong>Birthdate:</strong>
-  <%= @user_profile.birthdate %>
-</p>
+  <p>
+    <strong>Last name:</strong>
+    <%= @user_profile.last_name %>
+  </p>
 
-<p>
-  <strong>About:</strong>
-  <%= @user_profile.about %>
-</p>
+  <p>
+    <strong>Birthdate:</strong>
+    <%= @user_profile.birthdate %>
+  </p>
 
-<p>
-  <strong>Experience:</strong>
-  <%= @user_profile.experience %>
-</p>
+  <p>
+    <strong>About:</strong>
+    <%= @user_profile.about %>
+  </p>
 
-<p>
-  <strong>City:</strong>
-  <%= @user_profile.city %>
-</p>
+  <p>
+    <strong>Experience:</strong>
+    <%= @user_profile.experience %>
+  </p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @user_profile.phone %>
-</p>
+  <p>
+    <strong>City:</strong>
+    <%= @user_profile.city %>
+  </p>
 
-<%= link_to 'Edit', edit_user_profile_path %> |
-<%= link_to 'Back', user_profiles_path %>
+  <p>
+    <strong>Phone:</strong>
+    <%= @user_profile.phone %>
+  </p>
+
+  <%= link_to 'Editar perfil', edit_user_profile_path %> |
+  <%= link_to 'Comunidad', user_profiles_path %>
+</div>

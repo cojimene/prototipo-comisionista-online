@@ -9,6 +9,8 @@ class CreateUserProfiles < ActiveRecord::Migration[5.1]
       t.integer :experience
       t.string :city
       t.string :phone
+      t.string :role
+      t.attachment :avatar
 
       t.timestamps
     end

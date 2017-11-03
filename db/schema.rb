@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(version: 20171102162313) do
     t.integer "experience"
     t.string "city"
     t.string "phone"
+    t.string "role"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_user_profiles_on_user_id"

@@ -18,4 +18,5 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require fancy_sidebar_navigation
+//= require lightbox
 //= require_tree .
