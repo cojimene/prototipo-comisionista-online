@@ -1,0 +1,45 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to root_path, class: 'navbar-brand' do %>
+        <%#= image_tag 'logo.png' %>
+        Comisionista Online
+      <% end %>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#public-menu">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <% if params[:controller] == 'home' %>
+            <li>
+              <%= link_to user_profiles_path do %>
+                <span class="glyphicon glyphicon-check"></span> Entrar
+              <% end %>
+            </li>
+          <% end %>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <span class="glyphicon glyphicon-log-out"></span> Cerrar sesión
+            <% end %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to new_user_registration_path do %>
+              <span class="glyphicon glyphicon-user"></span> Registrarse
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_user_session_path do %>
+              <span class="glyphicon glyphicon-log-in"></span> Iniciar sesión
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+

@@ -1,25 +1,14 @@
 @import utilities
 
-.co-navbar.navbar.navbar-default
-  box-shadow: 0 1px 2px $gray
-  height: 65px
+body
   background-color: #fff
-  padding: 0 5px
-  .navbar-header
-    .navbar-brand
-      padding: 2px 0
-      img
-        height: 61px
+  font-family: Arial
+  letter-spacing: 0.5px
+  h1, h2, h3, h4, h5, h6
+    font-family: Arial
+  .no-padding
+    padding: 0
 
-  .navbar-nav > li > a.btn
-    padding: 10px 15px
-    margin: 10px
-    padding: 10px 15px
-    border-radius: 0
-    &.btn-primary
-      color: #fff
-      &:hover
-        background-color: #286090
 .btn
   padding: 10px 15px
   border-radius: 0
@@ -32,3 +21,26 @@
     color: red
   input
     border-color: red
+
+#wrapper
+  #sidebar-wrapper
+    width: 50px
+    .nav.sidebar-nav.full-text
+      display: none
+    .nav.sidebar-nav.icons-only
+      display: block
+    .nav > li > a
+      .fa
+        font-size: 20px
+      &:focus, &:hover
+        background-color: transparent
+  .hamburger
+    margin-left: 70px
+    &.is-open
+      margin-left: 20px
+  &.toggled
+    #sidebar-wrapper
+      .nav.sidebar-nav.full-text
+        display: block
+      .nav.sidebar-nav.icons-only
+        display: none

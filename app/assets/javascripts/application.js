@@ -15,4 +15,7 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require toastr
+//= require moment
+//= require bootstrap-datetimepicker
+//= require fancy_sidebar_navigation
 //= require_tree .

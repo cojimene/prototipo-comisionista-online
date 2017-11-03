@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="icon" type="image/png" href="<%= asset_url 'favicon.png' %>"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
@@ -20,10 +21,23 @@
       </div>
     <% end %>
 
-    <div class="container">
-      <div class="row">
-        <%= yield %>
+    <div id="wrapper">
+      <%#= render 'shared/navbar' %>
+      <%= render 'shared/side_menu' if user_signed_in? %>
+
+      <% if user_signed_in? %>
+        <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+          <span class="hamb-top"></span>
+          <span class="hamb-middle"></span>
+          <span class="hamb-bottom"></span>
+        </button>
+      <% end %>
+      <div class="container">
+        <div class="row">
+          <%= yield %>
+        </div>
       </div>
+
     </div>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

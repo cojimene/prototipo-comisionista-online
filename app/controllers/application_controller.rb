@@ -3,6 +3,17 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
   before_action :set_locale
+  before_action :check_registration_finished, unless: :devise_controller?
+
+  helper_method :current_user
+
+protected
+
+  def check_registration_finished
+    if user_signed_in? && !current_user.has_profile?
+      redirect_to new_user_profile_path
+    end
+  end
 
 private
 

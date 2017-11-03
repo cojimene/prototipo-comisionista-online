@@ -8,30 +8,7 @@
   </head>
 
   <body class="home-page">
-    <nav class="navbar navbar-default navbar-fixed-top co-navbar">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <%= link_to root_path, class: 'navbar-brand' do %>
-            <%= image_tag 'logo.png' %>
-          <% end %>
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#public-menu">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <% if user_signed_in? %>
-              <li><%= link_to 'Cerrar Sesión', destroy_user_session_path, class: 'btn btn-default', method: :delete %></li>
-            <% else %>
-              <li><%= link_to 'Registrarse', new_user_registration_path, class: 'btn btn-primary' %></li>
-              <li><%= link_to 'Ingresar', new_user_session_path, class: 'btn btn-default' %></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <%= render 'shared/navbar' %>
 
     <div class="container-fluid">
       <% if flash[:notice] || flash[:alert] %>
@@ -116,26 +93,26 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12 panel-wrapper">
               <div class="panel">
-                <%= fa_icon 'credit-card', class: 'green' %>
-                <h2>Header 1</h2>
+                <%= fa_icon 'envelope-o', class: 'green' %>
+                <h2>Envío de correos  </h2>
                 <br/>
-                <p>Paragraph 1</p>
+                <p>Envíe correos a su lista de contactos o clientes y comparta los proyectos que esté gestionando</p>
               </div>
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12 panel-wrapper">
               <div class="panel">
-                <%= fa_icon 'credit-card', class: 'green' %>
-                <h2>Header 1</h2>
+                <%= fa_icon 'commenting-o', class: 'green' %>
+                <h2>Mensajes internos</h2>
                 <br/>
-                <p>Paragraph 1</p>
+                <p>Envíe mensajes internos a través de la misma aplicación a los usuarios registrados</p>
               </div>
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12 panel-wrapper">
               <div class="panel">
-                <%= fa_icon 'credit-card', class: 'green' %>
-                <h2>Header 1</h2>
+                <%= fa_icon 'handshake-o', class: 'green' %>
+                <h2>Haga negocios</h2>
                 <br/>
-                <p>Paragraph 1</p>
+                <p>Optimice la manera de hacer negocios mediante herramientas informáticas</p>
               </div>
             </div>
           </div>
@@ -144,8 +121,8 @@
 
       <section class="row section-5">
         <div class="col-xs-12 presentation">
-          <h1>Try application</h1>
-          <p>No se qué poner aquí aún</p>
+          <h1>Pruébela ahora</h1>
+          <p>¿Qué espera? Registrese ahora y comience a crear su propia red de negocios inmobiliarios</p>
           <br/>
           <%= link_to 'Registrarse', new_user_registration_path, class: 'btn btn-primary' %>
         </div>

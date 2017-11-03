@@ -1,0 +1,23 @@
+<div class="overlay"></div>
+
+<!-- Sidebar -->
+<nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+  <ul class="nav sidebar-nav icons-only">
+    <li class="sidebar-brand">
+      <a href="<%= root_path %>"><%= fa_icon 'home' %></a>
+    </li>
+    <li><a href="<%= user_profiles_path %>"><%= fa_icon 'globe' %></a></li>
+    <li><a href="#"><%= fa_icon 'building' %></a></li>
+    <li><a href="#"><%= fa_icon 'users' %></a></li>
+  </ul>
+
+  <ul class="nav sidebar-nav full-text">
+    <li class="sidebar-brand">
+      <a href="<%= root_path %>">Comisionista online</a>
+    </li>
+    <li><%= link_to 'Comunidad', user_profiles_path %></li>
+    <li><%= link_to 'Propiedades', '#' %></li>
+    <li><%= link_to 'Mis contactos', '#' %></li>
+  </ul>
+</nav>
+<!-- /#sidebar-wrapper -->
