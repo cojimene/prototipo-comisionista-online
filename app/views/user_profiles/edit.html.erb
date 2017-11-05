@@ -2,7 +2,9 @@
 
 <%= render 'form', user_profile: @user_profile %>
 
-<div class="pull-right">
-  <%= link_to 'Perfil', user_profile_path, class: 'btn btn-primary' %>
+<p class="pull-right">
+  <%= link_to 'Perfil', @user_profile, class: 'btn btn-primary' %>
   <%= link_to 'Volver', user_profiles_path, class: 'btn btn-default' %>
-</div>
+  <br>
+  <br>
+</p>

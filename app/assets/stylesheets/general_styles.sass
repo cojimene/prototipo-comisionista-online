@@ -25,15 +25,17 @@ body
 #wrapper
   #sidebar-wrapper
     width: 50px
-    .nav.sidebar-nav.full-text
-      display: none
-    .nav.sidebar-nav.icons-only
-      display: block
-    .nav > li > a
-      .fa
-        font-size: 20px
-      &:focus, &:hover
-        background-color: transparent
+    .nav.sidebar-nav
+      &.full-text
+        display: none
+      &.icons-only
+        display: block
+      > li > a
+        padding-left: 15px
+        .fa
+          font-size: 20px
+        &:focus, &:hover
+          background-color: transparent
   .hamburger
     margin-left: 70px
     &.is-open
@@ -44,3 +46,29 @@ body
         display: block
       .nav.sidebar-nav.icons-only
         display: none
+
+.co-grid
+  margin: 0 -10px
+  .grid-item-container
+    padding: 0 10px
+    .grid-item
+      text-align: center
+      box-shadow: 0 0 4px $gray
+      background-color: $body_background
+      .image-container
+        height: 140px
+        padding: 10px
+        overflow: hidden
+        img
+          width: 100%
+      a.data
+        padding: 5px
+        text-decoration: none
+        height: 135px
+        display: block
+        overflow: auto
+        color: #000
+
+
+
+

@@ -2,7 +2,7 @@ class UserProfilesController < ApplicationController
 
   skip_before_action :check_registration_finished, only: [:new, :create]
 
-  before_action :set_user_profile, only: [:show, :edit, :update]
+  before_action :set_user_profile, only: [:edit, :update]
 
   # GET /user_profiles
   # GET /user_profiles.json
@@ -13,6 +13,7 @@ class UserProfilesController < ApplicationController
   # GET /user_profiles/1
   # GET /user_profiles/1.json
   def show
+    @user_profile = UserProfile.find(params[:id])
   end
 
   # GET /user_profiles/new
@@ -31,8 +32,8 @@ class UserProfilesController < ApplicationController
 
     respond_to do |format|
       if @user_profile.save
-        format.html { redirect_to user_profile_path, notice: 'Su perfil ha sido creado exitosamente' }
-        format.json { render :show, status: :created, location: user_profile_path }
+        format.html { redirect_to @user_profile, notice: 'Su perfil ha sido creado exitosamente' }
+        format.json { render :show, status: :created, location: @user_profile }
       else
         format.html { render :new }
         format.json { render json: @user_profile.errors, status: :unprocessable_entity }
@@ -45,8 +46,8 @@ class UserProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @user_profile.update(user_profile_params)
-        format.html { redirect_to user_profile_path, notice: 'Su perfil ha sido actualizado exitosamente' }
-        format.json { render :show, status: :ok, location: user_profile_path }
+        format.html { redirect_to @user_profile, notice: 'Su perfil ha sido actualizado exitosamente' }
+        format.json { render :show, status: :ok, location: @user_profile }
       else
         format.html { render :edit }
         format.json { render json: @user_profile.errors, status: :unprocessable_entity }

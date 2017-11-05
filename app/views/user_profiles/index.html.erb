@@ -1,34 +1,21 @@
-<p id="notice"><%= notice %></p>
+<h1>Usuarios en la comunidad</h1>
 
-<h1>User Profiles</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Birthdate</th>
-      <th>About</th>
-      <th>Experience</th>
-      <th>City</th>
-      <th>Phone</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @user_profiles.each do |user_profile| %>
-      <tr>
-        <td><%= user_profile.first_name %></td>
-        <td><%= user_profile.last_name %></td>
-        <td><%= user_profile.birthdate %></td>
-        <td><%= user_profile.about %></td>
-        <td><%= user_profile.experience %></td>
-        <td><%= user_profile.city %></td>
-        <td><%= user_profile.phone %></td>
-        <td><%= link_to 'Show', user_profile_path %></td>
-        <td><%= link_to 'Edit', edit_user_profile_path(user_profile) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row co-grid">
+  <% @user_profiles.each do |user_profile| %>
+    <div class="col-lg-3 col-sm-4 col-xs-6 grid-item-container <%= user_profile.role %>">
+      <div class="grid-item">
+        <div class="image-container">
+          <%= link_to user_profile.avatar.url, data: { lightbox: true, title: 'Foto de perfil' } do %>
+            <%= image_tag user_profile.avatar.url(:medium) %>
+          <% end %>
+        </div>
+        <%= link_to user_profile, class: 'data', data: { toggle: 'tooltip', placement: 'bottom' }, title: 'Ir al perfil' do %>
+          <h4><%= user_profile.full_name %></h4>
+          <%= user_profile.role %>
+          <br/>
+          <%= user_profile.experience %> años de experiencia en el sector
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
