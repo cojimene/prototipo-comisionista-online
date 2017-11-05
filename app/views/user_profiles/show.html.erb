@@ -1,48 +1,60 @@
-<div class="col-sm-8 col-sm-offset-2">
-  <p id="notice"><%= notice %></p>
-  Esta mierda le edito luego
-
-  <p>
-    <%= link_to @user_profile.avatar.url, data: { lightbox: true, title: 'Foto de peril' } do %>
+<div class="profile-images-container">
+  <%= image_tag 'profile-bg', class: 'background' %>
+  <%= image_tag 'co-logo', class: 'co-logo' %>
+  <div class="user-logo">
+    <%= link_to @user_profile.avatar.url, data: { lightbox: true, title: 'Foto de perfil' } do %>
       <%= image_tag @user_profile.avatar.url(:medium) %>
     <% end %>
-  </p>
-
-  <p>
-    <strong>First name:</strong>
-    <%= @user_profile.first_name %>
-  </p>
-
-  <p>
-    <strong>Last name:</strong>
-    <%= @user_profile.last_name %>
-  </p>
-
-  <p>
-    <strong>Birthdate:</strong>
-    <%= @user_profile.birthdate %>
-  </p>
-
-  <p>
-    <strong>About:</strong>
-    <%= @user_profile.about %>
-  </p>
-
-  <p>
-    <strong>Experience:</strong>
-    <%= @user_profile.experience %>
-  </p>
-
-  <p>
-    <strong>City:</strong>
-    <%= @user_profile.city %>
-  </p>
-
-  <p>
-    <strong>Phone:</strong>
-    <%= @user_profile.phone %>
-  </p>
-
-  <%= link_to 'Editar perfil', edit_user_profile_path %> |
-  <%= link_to 'Comunidad', user_profiles_path %>
+  </div>
+  <h3 class="user-name"><%= @user_profile.full_name %> <small>(<%= @user_profile.role %>)</small></h3>
 </div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">Ciudad</div>
+      <div class="panel-body"><%= @user_profile.city %></div>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">Correo electrónico</div>
+      <div class="panel-body"><%= mail_to @user_profile.email %></div>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">Teléfono</div>
+      <div class="panel-body"><%= number_to_phone @user_profile.phone %></div>
+    </div>
+  </div>
+
+  <% if @user_profile.experience %>
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">Años de experiencia en el sector</div>
+        <div class="panel-body"><%= @user_profile.experience %></div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">Acerca de mi</div>
+      <div class="panel-body"><%= @user_profile.about %></div>
+    </div>
+  </div>
+</div>
+
+<p>
+  <% if @user_profile.user == current_user %>
+    <%= link_to 'Editar perfil', edit_user_profile_path, class: 'btn btn-primary' %>
+  <% else %>
+    <%= link_to 'Agregar contacto', '#', class: 'btn btn-success' %>
+    <%= link_to 'Enviar mensaje', '#', class: 'btn btn-primary pull-right' %>
+  <% end %>
+  <br>
+  <br>
+</p>
