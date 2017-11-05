@@ -1,6 +1,6 @@
 <div class="profile-images-container">
-  <%= image_tag 'profile-bg', class: 'background' %>
-  <%= image_tag 'co-logo', class: 'co-logo' %>
+  <%= image_tag 'profile-bg.jpg', class: 'background' %>
+  <%= image_tag 'co-logo.png', class: 'co-logo' %>
   <div class="user-logo">
     <%= link_to @user_profile.avatar.url, data: { lightbox: true, title: 'Foto de perfil' } do %>
       <%= image_tag @user_profile.avatar.url(:medium) %>
