@@ -3,14 +3,16 @@ class Ability
 
   def initialize(user)
     user ||= User.new # guest user (not logged in)
-    # if user.admin?
-    #   can :manage, :all
-    # else
-    #   can :read, :all
-    # end
+
     can :manage, UserProfile, user: user
     can :manage, Property, user: user
     can :read, :all
+
+    if user.agent?
+    elsif user.owner?
+    elsif user.investment?
+      cannot [:create, :new], Property
+    end
 
     #
     # The first argument to `can` is the action you are giving the user

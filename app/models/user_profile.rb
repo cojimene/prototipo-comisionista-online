@@ -4,6 +4,7 @@ class UserProfile < ApplicationRecord
   ROLES = %w[Comisionista Propietario Inversionista]
 
   belongs_to :user
+  has_many :properties, through: :user
 
   has_attached_file :avatar, styles: { medium: "300x200>", thumb: "100x65>" }, default_url: "/images/missing_:style.png"
   validates_attachment :avatar, presence: true, content_type: { content_type: %w[image/jpeg image/png image/gif] }, size: { in: 0..5.megabytes }

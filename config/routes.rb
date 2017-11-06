@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :user_profiles
+  resources :user_profiles do
+    get :properties, on: :member
+  end
 
   resources :properties
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home#index', as: :root

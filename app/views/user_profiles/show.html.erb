@@ -39,6 +39,15 @@
       </div>
     </div>
   <% end %>
+  <div class="col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">Propiedades publicadas</div>
+      <div class="panel-body">
+        <%= @user_profile.properties.count %>
+        <%= link_to 'Ver propiedades', properties_user_profile_path(@user_profile) %>
+      </div>
+    </div>
+  </div>
 
   <div class="col-sm-12">
     <div class="panel panel-default">

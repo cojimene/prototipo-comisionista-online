@@ -50,6 +50,11 @@ class UserProfilesController < ApplicationController
     end
   end
 
+  def properties
+    @properties = @user_profile.properties
+    render 'properties/index'
+  end
+
 private
 
   # Never trust parameters from the scary internet, only allow the white list through.
