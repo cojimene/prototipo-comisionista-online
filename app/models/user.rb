@@ -13,7 +13,7 @@ class User < ApplicationRecord
   alias_method :profile, :user_profile
 
   def has_profile?
-    user_profile.present?
+    user_profile.present? && user_profile.persisted?
   end
 
   def agent?

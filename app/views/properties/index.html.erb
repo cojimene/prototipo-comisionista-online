@@ -1,8 +1,6 @@
-<h1><%= @title || 'Propiedades existentes' %></h1>
-<div class="col-xs-12">
-  <p>
-    <%= link_to 'Nueva', new_property_path, class: 'btn btn-primary pull-right' if can?(:create, Property) %>
-  </p>
+<div class="col-xs-12 no-padding header">
+  <h1><%= @title || 'Propiedades existentes' %></h1>
+  <%= link_to 'Nueva', new_property_path, class: 'btn btn-primary pull-right' if can?(:create, Property) %>
 </div>
 
 <div class="row co-grid">
