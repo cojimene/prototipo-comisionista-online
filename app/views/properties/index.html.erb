@@ -18,9 +18,7 @@
         </div>
         <%= link_to property, class: 'data', data: { toggle: 'tooltip', placement: 'bottom' }, title: 'Ir a la propiedad' do %>
           <h4><%= property.property_type %></h4>
-          <%= property.city %>
-          <br/>
-          <%= property.neighborhood %></span>
+          <%= property.city %>, <%= property.neighborhood %>
           <br/>
           <%= property.availability %>
           <br/>

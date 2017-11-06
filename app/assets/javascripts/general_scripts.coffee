@@ -13,6 +13,9 @@
 $(document).on 'change', 'input[type=file].change-image', ->
   $(this).prev('label.label-for-image').addClass('changed')
 
+$(document).on 'submit', 'form[enctype="multipart/form-data"]', ->
+  $('#loading-overlay').show()
+
 $(document).ready ->
   launch_toastr_messages()
   load_time_pickers()
