@@ -1,3 +1,5 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).on 'change', '#property_property_type', ->
+  if $(this).val() == 'Lote'
+    $('.hiddeable').slideUp().find('input').prop('required', false)
+  else
+    $('.hiddeable').slideDown().find('input').prop('required', true)

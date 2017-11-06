@@ -6,6 +6,7 @@ class Ability
 
     can :manage, UserProfile, user: user
     can :manage, Property, user: user
+    can :properties, UserProfile
     can :read, :all
 
     if user.agent?

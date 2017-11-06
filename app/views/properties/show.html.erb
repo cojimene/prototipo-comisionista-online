@@ -29,21 +29,25 @@
         </div>
       </div>
 
-      <div class="col-sm-6">
-        <div class="property-value">
-          <strong><%= Property.human_attribute_name :rooms %>:</strong>
-          <br/>
-          <%= @property.rooms %>
+      <% if @property.rooms %>
+        <div class="col-sm-6">
+          <div class="property-value">
+            <strong><%= Property.human_attribute_name :rooms %>:</strong>
+            <br/>
+            <%= @property.rooms %>
+          </div>
         </div>
-      </div>
+      <% end %>
 
-      <div class="col-sm-6">
-        <div class="property-value">
-          <strong><%= Property.human_attribute_name :bathrooms %>:</strong>
-          <br/>
-          <%= @property.bathrooms %>
+      <% if @property.bathrooms %>
+        <div class="col-sm-6">
+          <div class="property-value">
+            <strong><%= Property.human_attribute_name :bathrooms %>:</strong>
+            <br/>
+            <%= @property.bathrooms %>
+          </div>
         </div>
-      </div>
+      <% end %>
 
       <div class="col-sm-6">
         <div class="property-value">
@@ -53,13 +57,15 @@
         </div>
       </div>
 
-      <div class="col-sm-6">
-        <div class="property-value">
-          <strong><%= Property.human_attribute_name :age %>:</strong>
-          <br/>
-          <%= @property.pretty_age %>
+      <% if @property.age %>
+        <div class="col-sm-6">
+          <div class="property-value">
+            <strong><%= Property.human_attribute_name :age %>:</strong>
+            <br/>
+            <%= @property.pretty_age %>
+          </div>
         </div>
-      </div>
+      <% end %>
 
       <div class="col-sm-6">
         <div class="property-value">
@@ -69,21 +75,25 @@
         </div>
       </div>
 
-      <div class="col-sm-6">
-        <div class="property-value">
-          <strong><%= Property.human_attribute_name :floor %>:</strong>
-          <br/>
-          <%= @property.floor %>
+      <% if @property.floor %>
+        <div class="col-sm-6">
+          <div class="property-value">
+            <strong><%= Property.human_attribute_name :floor %>:</strong>
+            <br/>
+            <%= @property.floor %>
+          </div>
         </div>
-      </div>
+      <% end %>
 
-      <div class="col-sm-6">
-        <div class="property-value">
-          <strong><%= Property.human_attribute_name :parkings %>:</strong>
-          <br/>
-          <%= @property.parkings %>
+      <% if @property.parkings %>
+        <div class="col-sm-6">
+          <div class="property-value">
+            <strong><%= Property.human_attribute_name :parkings %>:</strong>
+            <br/>
+            <%= @property.parkings %>
+          </div>
         </div>
-      </div>
+      <% end %>
 
       <div class="col-sm-6">
         <div class="property-value">
