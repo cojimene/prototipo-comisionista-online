@@ -1,4 +1,4 @@
-<%= form_for user_profile, url: user_profiles_path do |form| %>
+<%= form_for user_profile do |form| %>
   <%= render 'shared/model_errors', resource: user_profile %>
 
   <% if user_profile.avatar.present? %>
@@ -19,14 +19,16 @@
     <%= form.text_field :last_name, class: 'form-control' %>
   </div>
 
-  <div class="form-group col-sm-6">
-    <%= form.label :experience %> (Sólo para comisionistas)
-    <%= form.number_field :experience, class: 'form-control', min: 1, max: 70 %>
-  </div>
+  <div class="clearfix">
+    <div class="form-group col-sm-6">
+      <%= form.label :role %>
+      <%= form.select :role, UserProfile::ROLES, {include_blank: true}, class: 'form-control' %>
+    </div>
 
-  <div class="form-group col-sm-6">
-    <%= form.label :role %>
-    <%= form.select :role, UserProfile::ROLES, {}, class: 'form-control' %>
+    <div class="form-group col-sm-6 <%= 'hidden-soft' if user_profile.experience != 'Comisionista' %>">
+      <%= form.label :experience %>
+      <%= form.number_field :experience, class: 'form-control', min: 1, max: 70 %>
+    </div>
   </div>
 
   <div class="form-group col-sm-6">

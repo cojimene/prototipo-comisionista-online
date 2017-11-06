@@ -42,6 +42,23 @@ es:
         phone: Teléfono
         avatar: Imagen perfil
         role: Rol
+      property:
+        property_type: Typo Propiedad
+        area: Área
+        rooms: Número Habitaciones
+        bathrooms: Número Baños
+        price: Precio
+        age: Antigüedad (0 para nuevo o sobre planos)
+        age_simple: Antigüedad
+        stratum: Estrato
+        floor: Piso
+        description: Descripción
+        parkings: Número Parqueaderos
+        neighborhood: Barrio
+        address: Dirección
+        city: Ciudad
+        availability: Disponible para
+        user: Publicado por
     errors:
       messages:
         model_invalid: "La validación ha fallado: %{errors}"

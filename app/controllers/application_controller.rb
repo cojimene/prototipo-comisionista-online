@@ -15,6 +15,13 @@ protected
     end
   end
 
+  rescue_from CanCan::AccessDenied do |exception|
+    respond_to do |format|
+      format.json { head :forbidden }
+      format.html { redirect_to root_url, alert: 'Usted no está autorizado para acceder a este recurso' }
+    end
+  end
+
 private
 
   def set_locale

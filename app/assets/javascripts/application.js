@@ -12,10 +12,13 @@
 //
 //= require rails-ujs
 //= require jquery
+//= require jquery_ujs
 //= require bootstrap-sprockets
 //= require toastr
 //= require moment
 //= require bootstrap-datetimepicker
 //= require fancy_sidebar_navigation
 //= require lightbox
+//= require sweetalert2
+//= require sweet-alert2-rails
 //= require_tree .

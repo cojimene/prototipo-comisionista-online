@@ -1,0 +1,82 @@
+<%= form_for property do |form| %>
+  <%= render 'shared/model_errors', resource: property %>
+
+  <div class="form-group col-sm-6">
+    <%= form.label :property_type %>
+    <%= form.select :property_type, Property::PROPERTY_TYPES, {}, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= form.label :availability %>
+    <%= form.select :availability, Property::AVAILABILITY_TYPES, {}, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= form.label :area %> (m<sup>2</sup>)
+    <%= form.number_field :area, class: 'form-control', required: true, min: 1, step: '0.01' %>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= form.label :rooms %>
+    <%= form.number_field :rooms, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= form.label :bathrooms %>
+    <%= form.number_field :bathrooms, class: 'form-control', required: true, min: 1 %>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= form.label :price %>
+    <%= form.number_field :price, class: 'form-control', required: true, min: 100000 %>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= form.label :age %>
+    <%= form.number_field :age, class: 'form-control', required: true, min: 0 %>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= form.label :stratum %>
+    <%= form.number_field :stratum, class: 'form-control', required: true, min: 1, max: 7 %>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= form.label :floor %>
+    <%= form.number_field :floor, class: 'form-control', required: true, min: 1 %>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= form.label :parkings %>
+    <%= form.number_field :parkings, class: 'form-control', required: true, min: 1 %>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= form.label :neighborhood %>
+    <%= form.text_field :neighborhood, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= form.label :address %>
+    <%= form.text_field :address, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= form.label :city %>
+    <%= form.select :city, UserProfile::MAIN_CITIES, {}, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= form.label nil, 'Adicionar imágenes (Máximo 10)' %>
+    <%= form.file_field :images, accept: 'image/png,image/gif,image/jpeg', multiple: true %>
+  </div>
+
+   <div class="form-group col-sm-12">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: 'form-control', rows: 4, required: true %>
+  </div>
+
+  <div class="form-group col-xs-12">
+    <%= form.submit 'Guardar', class: 'btn btn-primary' %>
+  </div>
+<% end %>

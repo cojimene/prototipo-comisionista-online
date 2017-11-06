@@ -49,8 +49,8 @@
 </div>
 
 <p>
-  <% if @user_profile.user == current_user %>
-    <%= link_to 'Editar perfil', edit_user_profile_path, class: 'btn btn-primary' %>
+  <% if can? :edit, @user_profile %>
+    <%= link_to 'Editar perfil', edit_user_profile_path(@user_profile), class: 'btn btn-primary' %>
   <% else %>
     <%= link_to 'Agregar contacto', '#', class: 'btn btn-success' %>
     <%= link_to 'Enviar mensaje', '#', class: 'btn btn-primary pull-right' %>

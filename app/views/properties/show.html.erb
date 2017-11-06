@@ -1,0 +1,122 @@
+<h1>
+  <%= @property.property_type %> en <%= @property.city %>, <%= @property.neighborhood %>
+  <%= number_to_currency @property.price, precision: 0 %>
+</h1>
+
+<% if @property.images.count > 0 %>
+  <%= render 'shared/carousel', images: @property.images %>
+<% end %>
+
+<div class="panel panel-default">
+  <div class="panel-heading"><strong>Detalles</strong></div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="property-value">
+          <strong><%= Property.human_attribute_name :user %>:</strong>
+          <br/>
+          <%= link_to @property.user.profile.full_name, @property.user.profile %>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="property-value">
+          <strong><%= Property.human_attribute_name :area %>:</strong>
+          <br/>
+          <%= @property.area %> m <sup>2</sup>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="property-value">
+          <strong><%= Property.human_attribute_name :rooms %>:</strong>
+          <br/>
+          <%= @property.rooms %>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="property-value">
+          <strong><%= Property.human_attribute_name :bathrooms %>:</strong>
+          <br/>
+          <%= @property.bathrooms %>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="property-value">
+          <strong><%= Property.human_attribute_name :price %>:</strong>
+          <br/>
+          <%= number_to_currency @property.price, precision: 0 %>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="property-value">
+          <strong><%= Property.human_attribute_name :age_simple %>:</strong>
+          <br/>
+          <%= @property.pretty_age %>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="property-value">
+          <strong><%= Property.human_attribute_name :stratum %>:</strong>
+          <br/>
+          <%= @property.stratum %>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="property-value">
+          <strong><%= Property.human_attribute_name :floor %>:</strong>
+          <br/>
+          <%= @property.floor %>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="property-value">
+          <strong><%= Property.human_attribute_name :parkings %>:</strong>
+          <br/>
+          <%= @property.parkings %>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="property-value">
+          <strong><%= Property.human_attribute_name :address %>:</strong>
+          <br/>
+          <%= @property.address %>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="property-value">
+          <strong><%= Property.human_attribute_name :city %>:</strong>
+          <br/>
+          <%= @property.city %>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="property-value">
+          <strong><%= Property.human_attribute_name :description %>:</strong>
+          <br/>
+          <%= @property.description %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<p>
+  <% if can? :manage, @property %>
+    <%= link_to 'Editar', edit_property_path(@property), class: 'btn btn-primary' %>
+    <%= swal_delete_button @property %>
+  <% else %>
+    <%= link_to 'Comisionar', '#', class: 'btn btn-success' %>
+    <%= link_to 'Estoy interesado', '#', class: 'btn btn-danger pull-right' %>
+  <% end %>
+</p>
+

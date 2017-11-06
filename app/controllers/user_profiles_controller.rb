@@ -1,35 +1,30 @@
 class UserProfilesController < ApplicationController
 
-  skip_before_action :check_registration_finished, only: [:new, :create]
+  load_and_authorize_resource
 
-  before_action :set_user_profile, only: [:edit, :update]
+  skip_before_action :check_registration_finished, only: [:new, :create]
 
   # GET /user_profiles
   # GET /user_profiles.json
   def index
-    @user_profiles = UserProfile.all
   end
 
   # GET /user_profiles/1
   # GET /user_profiles/1.json
   def show
-    @user_profile = UserProfile.find(params[:id])
   end
 
   # GET /user_profiles/new
   def new
-    @user_profile = UserProfile.new
   end
 
-  # GET /user_profiles/1/edit
+  # GET /user_profiles/edit
   def edit
   end
 
   # POST /user_profiles
   # POST /user_profiles.json
   def create
-    @user_profile = UserProfile.new(user_profile_params)
-
     respond_to do |format|
       if @user_profile.save
         format.html { redirect_to @user_profile, notice: 'Su perfil ha sido creado exitosamente' }
@@ -55,15 +50,12 @@ class UserProfilesController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user_profile
-      @user_profile = current_user.profile
-    end
+private
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_profile_params
-      params.require(:user_profile).permit(:first_name, :last_name, :birthdate, :about, :experience, :city, :phone, :role,
-        :avatar).merge user: current_user
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_profile_params
+    params.require(:user_profile).permit(:first_name, :last_name, :birthdate, :about, :experience, :city, :phone, :role,
+      :avatar).merge user: current_user
+  end
+
 end

@@ -1,0 +1,34 @@
+<h1>Propiedades existentes</h1>
+<div class="col-xs-12">
+  <%= link_to 'Nueva', new_property_path, class: 'btn btn-primary pull-right' %>
+</div>
+
+<div class="row co-grid">
+  <% @properties.each do |property| %>
+    <div class="col-lg-3 col-sm-4 col-xs-6 grid-item-container <%= property.city.downcase %>">
+      <div class="grid-item">
+        <div class="image-container">
+          <% if property.default_image.persisted? %>
+            <%= link_to property.default_image.attachment.url, data: { lightbox: true } do %>
+              <%= image_tag property.default_image.attachment.url(:medium) %>
+            <% end %>
+          <% else %>
+            <%= image_tag property.default_image.attachment.url(:medium) %>
+          <% end %>
+        </div>
+        <%= link_to property, class: 'data', data: { toggle: 'tooltip', placement: 'bottom' }, title: 'Ir a la propiedad' do %>
+          <h4><%= property.property_type %></h4>
+          <%= property.city %>
+          <br/>
+          <%= property.neighborhood %></span>
+          <br/>
+          <%= property.availability %>
+          <br/>
+          <%= number_to_currency property.price, precision: 0 %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+

@@ -2,7 +2,7 @@
 
 <div class="row co-grid">
   <% @user_profiles.each do |user_profile| %>
-    <div class="col-lg-3 col-sm-4 col-xs-6 grid-item-container <%= user_profile.role %>">
+    <div class="col-lg-3 col-sm-4 col-xs-6 grid-item-container <%= user_profile.role.downcase %>">
       <div class="grid-item">
         <div class="image-container">
           <%= link_to user_profile.avatar.url, data: { lightbox: true, title: 'Foto de perfil' } do %>
@@ -11,9 +11,11 @@
         </div>
         <%= link_to user_profile, class: 'data', data: { toggle: 'tooltip', placement: 'bottom' }, title: 'Ir al perfil' do %>
           <h4><%= user_profile.full_name %></h4>
-          <%= user_profile.role %>
+          <span class="role"><%= user_profile.role %></span>
           <br/>
-          <%= user_profile.experience %> años de experiencia en el sector
+          <% if user_profile.experience %>
+            <%= user_profile.experience %> años de experiencia en el sector
+          <% end %>
         <% end %>
       </div>
     </div>

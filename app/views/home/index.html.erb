@@ -13,7 +13,7 @@
     <div class="container-fluid home-content">
       <% if flash[:notice] || flash[:alert] %>
         <div class="row">
-          <div class="alert alert-info alert-dismissable">
+          <div class="alert <%= flash[:alert] ? 'alert-danger' : 'alert-info' %> alert-dismissable">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             <%= flash[:notice] || flash[:alert] %>
           </div>
