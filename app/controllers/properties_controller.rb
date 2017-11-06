@@ -64,12 +64,14 @@ private
 
   def property_params
     params.require(:property).permit(:property_type, :area, :area, :rooms, :bathrooms, :price, :price, :age, :stratum,
-      :floor, :description, :parkings, :neighborhood, :address, :city, :availability, :images).merge user: current_user
+      :floor, :description, :parkings, :neighborhood, :address, :city, :availability, :images,
+      images_attributes: [:id, :attachment, :_destroy]
+    ).merge user: current_user
   end
 
   def add_images
     if images = params[:property][:images]
-      if images.size > Property::MAX_IMAGES
+      if images.size + @property.images.count > Property::MAX_IMAGES
         flash[:alert] = "No puedes agregar más de #{Property::MAX_IMAGES} imágenes"
       else
         images.each { |image| @property.images.create(attachment: image) }

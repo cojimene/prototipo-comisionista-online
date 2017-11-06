@@ -48,8 +48,7 @@ es:
         rooms: Número Habitaciones
         bathrooms: Número Baños
         price: Precio
-        age: Antigüedad (0 para nuevo o sobre planos)
-        age_simple: Antigüedad
+        age: Años de Antigüedad
         stratum: Estrato
         floor: Piso
         description: Descripción

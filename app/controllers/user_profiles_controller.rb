@@ -52,6 +52,7 @@ class UserProfilesController < ApplicationController
 
   def properties
     @properties = @user_profile.properties
+    @title = "Propiedades de #{@user_profile.full_name}"
     render 'properties/index'
   end
 

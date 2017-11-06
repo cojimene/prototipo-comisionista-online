@@ -10,22 +10,8 @@
 @launch_tooltips = ->
   $('[data-toggle="tooltip"]').tooltip()
 
-# $(document).on 'click', 'a.confirm-destroy', (e) ->
-#   e.preventDefault()
-#   $target_link = $(this)
-#   swal {
-#     title: '¿Está seguro?'
-#     text: '¡Está acción no puede deshacerse!'
-#     type: 'warning'
-#     showCancelButton: true
-#     confirmButtonText: 'Si'
-#     cancelButtonText: 'No'
-#   }, (isConfirm) ->
-#     if isConfirm
-#       if $target_link.data('remote')
-#         $.rails.handleRemote($target_link.data('url'))
-#       else
-#         $.rails.handleMethod($target_link.data('url'))
+$(document).on 'change', 'input[type=file].change-image', ->
+  $(this).prev('label.label-for-image').addClass('changed')
 
 $(document).ready ->
   launch_toastr_messages()

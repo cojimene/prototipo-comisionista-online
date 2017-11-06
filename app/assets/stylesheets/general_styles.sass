@@ -79,3 +79,25 @@ body
   margin-left: auto
   margin-right: auto
 
+.label-for-image
+  cursor: pointer
+  position: relative
+  height: 135px
+  overflow: hidden
+  margin-bottom: 0
+  img
+    width: 100%
+  .text
+    display: none
+    position: absolute
+    top: 50%
+    left: 50%
+    text-align: center
+    transform: translate(-50%, -50%)
+  &.changed
+    img
+      opacity: 0.2
+    .text
+      display: block
+
+

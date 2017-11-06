@@ -7,9 +7,11 @@ class Property < ApplicationRecord
   belongs_to :user
   has_many :images, as: :imageable, dependent: :destroy
 
-  validates :property_type, :area, :rooms, :bathrooms, :price, :age, :stratum, :floor, :description, :parkings, :neighborhood,
-    :address, :city, :availability, presence: true
+  validates :property_type, :area, :price, :description, :neighborhood, :address, :city, :availability, presence: true
+  validates :rooms, :bathrooms, :age, :stratum, :floor, :parkings, presence: true, unless: -> { property_type == 'Lote'}
   validates :price, numericality: { only_integer: true, less_than: 20000000000 }
+
+  accepts_nested_attributes_for :images, allow_destroy: true
 
   def pretty_age
     age == 0 ? 'Nuevo' : "#{age} años de uso"
