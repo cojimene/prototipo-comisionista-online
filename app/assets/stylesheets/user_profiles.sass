@@ -1,3 +1,5 @@
+@import 'utilities'
+
 .profile-images-container
   height: 320px
   position: relative
@@ -31,3 +33,13 @@
   color: darkorange
 .inversionista .role
   color: tomato
+
+@media (max-width: $sc_xs)
+  .profile-images-container
+    margin-bottom: 140px
+    .user-name
+      position: static
+      padding-top: 45px
+    .user-logo
+      left: 50%
+      transform: translate(-50%, 0%)

@@ -61,7 +61,9 @@
   <% if can? :edit, @user_profile %>
     <%= link_to 'Editar perfil', edit_user_profile_path(@user_profile), class: 'btn btn-primary' %>
   <% elsif user_signed_in? %>
-    <%= link_to 'Agregar contacto', '#', class: 'btn btn-success' %>
+    <%= link_to 'Agregar contacto', add_contact_user_profile_path(@user_profile), remote: true, id: 'add-contact-button',
+      class: 'btn btn-success' unless current_user.is_contact?(@user_profile)
+    %>
     <%= link_to 'Enviar mensaje', '#', class: 'btn btn-primary pull-right' %>
   <% else %>
     <%= link_to 'Contactar', '#', class: 'btn btn-success', data: { toggle: 'modal', target: '#contact-modal' } %>

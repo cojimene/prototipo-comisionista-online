@@ -5,7 +5,7 @@
 
 <div class="row co-grid">
   <% @properties.each do |property| %>
-    <div class="col-lg-3 col-sm-4 col-xs-6 grid-item-container <%= property.city.downcase %>">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 grid-item-container <%= property.city.downcase %>">
       <div class="grid-item">
         <div class="image-container">
           <% if property.default_image.persisted? %>

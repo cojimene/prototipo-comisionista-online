@@ -1,0 +1,4 @@
+<% @messages.each do |type, content| %>
+  toastr['<%= type %>']('<%= content %>');
+<% end %>
+$('#add-contact-button').remove();

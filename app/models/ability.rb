@@ -5,9 +5,10 @@ class Ability
     user ||= User.new # guest user (not logged in)
 
     if user.has_profile?
-      can :manage, UserProfile, user: user
-      can :manage, Property, user: user
-      can :properties, UserProfile
+      can :manage, UserProfile, user_id: user.id
+      can :manage, Property, user_id: user.id
+      can [:properties, :add_contact], UserProfile
+      can :contacts, UserProfile, user_id: user.contacts
       can :read, :all
     else
       can [:read, :properties], UserProfile, role: 'Comisionista'

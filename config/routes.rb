@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :user_profiles do
-    get :properties, on: :member
+    member do
+      get :properties
+      get :add_contact
+    end
+    get :contacts, on: :collection
   end
 
   resources :properties

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<nav class="navbar navbar-fixed-top navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <%= link_to root_path, class: 'navbar-brand' do %>
@@ -11,7 +11,7 @@
         <span class="icon-bar"></span>
       </button>
     </div>
-    <div class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse" id="public-menu">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <% if params[:controller] == 'home' %>

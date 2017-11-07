@@ -1,6 +1,7 @@
 class UserProfilesController < ApplicationController
 
   load_and_authorize_resource
+  skip_load_resource only: :contacts
 
   skip_before_action :check_registration_finished, only: [:new, :create]
   skip_before_action :authenticate_user!, only: [:index, :show]
@@ -55,6 +56,21 @@ class UserProfilesController < ApplicationController
     @properties = @user_profile.properties
     @title = "Propiedades de #{@user_profile.full_name}"
     render 'properties/index'
+  end
+
+  def add_contact
+    if user = @user_profile.user
+      current_user.contacts << user
+      @messages = {success: 'Contacto agregado con éxito.'}
+    else
+      @messages = {error: 'No se pudo a agregar este contacto'}
+    end
+  end
+
+  def contacts
+    @user_profiles = UserProfile.where(user_id: current_user.contacts)
+    @page_title = 'Mis contactos'
+    render :index
   end
 
 private

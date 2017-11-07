@@ -1,0 +1,40 @@
+<li>
+  <%= link_to user_profiles_path do %>
+    <%= fa_icon 'globe' %><span class="text">Comunidad</span>
+  <% end %>
+</li>
+<li>
+  <%= link_to properties_path do %>
+    <%= fa_icon 'building' %><span class="text">Propiedades</span>
+  <% end %>
+</li>
+<% if user_signed_in? %>
+  <% if current_user.has_profile? %>
+    <li>
+      <%= link_to current_user.profile do %>
+        <%= fa_icon 'user' %><span class="text">Mi Perfil</span>
+      <% end %>
+    </li>
+  <% end %>
+  <li>
+    <%= link_to contacts_user_profiles_path do %>
+      <%= fa_icon 'users' %><span class="text">Mis contactos</span>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to destroy_user_session_path, method: :delete do %>
+      <%= fa_icon 'sign-out' %><span class="text">Cerrar Sesión</span>
+    <% end %>
+  </li>
+<% else %>
+  <li>
+    <%= link_to new_user_session_path do %>
+      <%= fa_icon 'sign-in' %><span class="text">Iniciar Sesión</span>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to new_user_registration_path do %>
+      <%= fa_icon 'user-plus' %><span class="text">Registrarse</span>
+    <% end %>
+  </li>
+<% end %>
