@@ -10,6 +10,8 @@ class Ability
       can [:properties, :add_contact], UserProfile
       can :contacts, UserProfile, user_id: user.contacts
       can :read, :all
+    elsif user.persisted?
+      can [:new, :create], UserProfile
     else
       can [:read, :properties], UserProfile, role: 'Comisionista'
       can :show, UserProfile, role: 'Propietario'
