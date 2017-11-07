@@ -3,6 +3,7 @@ class UserProfilesController < ApplicationController
   load_and_authorize_resource
 
   skip_before_action :check_registration_finished, only: [:new, :create]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   # GET /user_profiles
   # GET /user_profiles.json

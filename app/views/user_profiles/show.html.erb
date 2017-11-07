@@ -60,10 +60,50 @@
 <p>
   <% if can? :edit, @user_profile %>
     <%= link_to 'Editar perfil', edit_user_profile_path(@user_profile), class: 'btn btn-primary' %>
-  <% else %>
+  <% elsif user_signed_in? %>
     <%= link_to 'Agregar contacto', '#', class: 'btn btn-success' %>
     <%= link_to 'Enviar mensaje', '#', class: 'btn btn-primary pull-right' %>
+  <% else %>
+    <%= link_to 'Contactar', '#', class: 'btn btn-success', data: { toggle: 'modal', target: '#contact-modal' } %>
   <% end %>
   <br>
   <br>
 </p>
+
+<% unless user_signed_in? %>
+  <div id="contact-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Contactar Comisionista</h4>
+        </div>
+        <div class="modal-body">
+          <p>Ingrese sus datos para contactar y contratar los servicios de este comisionista</p>
+          <form>
+            <div class="form-group">
+              <%= text_field_tag :names, '', placeholder: 'Nombres', class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= email_field_tag :email, '', placeholder: 'Correo electrónico', class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= text_field_tag :subject, '', placeholder: 'Asunto', class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= text_area_tag :content, '', placeholder: 'Mensaje', class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= submit_tag 'Enviar', class: 'btn btn-primary' %>
+              <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancelar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+
+

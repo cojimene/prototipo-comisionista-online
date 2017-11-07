@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   validates :user_profile, presence: true, on: :update
 
-  delegate :role, to: :user_profile, allow_nil: true
+  delegate :role, to: :user_profile
 
   alias_method :profile, :user_profile
 
@@ -17,15 +17,16 @@ class User < ApplicationRecord
   end
 
   def agent?
-    role == 'Comisionista'
+    has_profile? && role == 'Comisionista'
   end
 
   def owner?
-    role == 'Propietario'
+    has_profile? && role == 'Propietario'
   end
 
   def investment?
-    role == 'Inversionista'
+    has_profile? && role == 'Inversionista'
   end
+
 
 end

@@ -4,10 +4,16 @@ class Ability
   def initialize(user)
     user ||= User.new # guest user (not logged in)
 
-    can :manage, UserProfile, user: user
-    can :manage, Property, user: user
-    can :properties, UserProfile
-    can :read, :all
+    if user.has_profile?
+      can :manage, UserProfile, user: user
+      can :manage, Property, user: user
+      can :properties, UserProfile
+      can :read, :all
+    else
+      can [:read, :properties], UserProfile, role: 'Comisionista'
+      can :show, UserProfile, role: 'Propietario'
+      can :read, Property
+    end
 
     if user.agent?
     elsif user.owner?

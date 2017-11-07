@@ -126,9 +126,45 @@
   <% if can? :manage, @property %>
     <%= link_to 'Editar', edit_property_path(@property), class: 'btn btn-primary' %>
     <%= swal_delete_button @property %>
+  <% elsif user_signed_in? %>
+    <%= link_to 'Comisionar', '#', class: 'btn btn-success' if current_user.agent? %>
+    <%= link_to 'Estoy interesado', '#', class: 'btn btn-danger pull-right' if current_user.investment? %>
   <% else %>
-    <%= link_to 'Comisionar', '#', class: 'btn btn-success' %>
-    <%= link_to 'Estoy interesado', '#', class: 'btn btn-danger pull-right' %>
+    <%= link_to 'Estoy interesado', '#', class: 'btn btn-success', data: {toggle: 'modal', target: '#contact-modal'} %>
   <% end %>
 </p>
+
+<% unless user_signed_in? %>
+  <div id="contact-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Contactar Publicante</h4>
+        </div>
+        <div class="modal-body">
+          <p>Ingrese sus datos para contactar con el dueño de esta publicación</p>
+          <form>
+            <div class="form-group">
+              <%= text_field_tag :names, '', placeholder: 'Nombres', class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= email_field_tag :email, '', placeholder: 'Correo electrónico', class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= text_field_tag :subject, '', placeholder: 'Asunto', class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= text_area_tag :content, '', placeholder: 'Mensaje', class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= submit_tag 'Enviar', class: 'btn btn-primary' %>
+              <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancelar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
 
