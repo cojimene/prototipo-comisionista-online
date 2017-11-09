@@ -22,6 +22,11 @@
     <% end %>
   </li>
   <li>
+    <%= link_to messages_path do %>
+      <%= fa_icon 'inbox' %><span class="text">Mensajes</span>
+    <% end %>
+  </li>
+  <li>
     <%= link_to destroy_user_session_path, method: :delete do %>
       <%= fa_icon 'sign-out' %><span class="text">Cerrar Sesión</span>
     <% end %>

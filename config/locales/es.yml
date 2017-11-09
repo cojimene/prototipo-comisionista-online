@@ -58,6 +58,11 @@ es:
         city: Ciudad
         availability: Disponible para
         user: Publicado por
+      message:
+        recipient: Receptor
+        user: Remitente
+        subject: Asunto
+        content: Mensaje
     errors:
       messages:
         model_invalid: "La validación ha fallado: %{errors}"

@@ -1,0 +1,17 @@
+<%= form_for Message.new, remote: true do |f| %>
+  <div class="errors-container"></div>
+  <%= f.hidden_field :recipient_id, value: recipient.id %>
+  <div class="form-group">
+    <%= f.text_field :subject, placeholder: 'Asunto', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.text_area :content, placeholder: 'Mensaje', rows: 5, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <div class="checkbox"><label><%= f.check_box :urgent %> Urgente?</label></div>
+  </div>
+  <div class="form-group">
+    <%= f.submit 'Enviar', class: 'btn btn-primary' %>
+    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancelar</button>
+  </div>
+<% end %>

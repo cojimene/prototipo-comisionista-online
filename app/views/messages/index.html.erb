@@ -1,0 +1,25 @@
+<h1>Mesajes</h1>
+
+<div class="panel-group" id="accordion">
+  <% @messages.each do |message| %>
+    <div class="panel panel-default">
+      <div class="panel-heading <%= 'urgent' if message.urgent %>">
+        <div class="panel-title row">
+          <%= link_to "#message-#{message.id}", data: {toggle: 'collapse', parent: '#acordion'} do %>
+            <div class="col-sm-4">De: <%= message.user.profile.full_name %></div>
+            <div class="col-sm-8"><%= message.subject %></div>
+          <% end %>
+        </div>
+      </div>
+      <div id="message-<%= message.id %>" class="panel-collapse collapse">
+        <div class="panel-body">
+          <strong>De:</strong> <%= link_to message.user.profile.full_name, message.user.profile %><br/>
+          <strong>Para:</strong> <%= link_to message.recipient.profile.full_name, message.recipient.profile %><br/>
+          <strong>Asunto:</strong> <%= message.subject %> <%= '(Urgente)' if message.urgent %><br/>
+          <br/>
+          <%= simple_format message.content %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

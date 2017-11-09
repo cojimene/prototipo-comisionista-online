@@ -64,7 +64,7 @@
     <%= link_to 'Agregar contacto', add_contact_user_profile_path(@user_profile), remote: true, id: 'add-contact-button',
       class: 'btn btn-success' unless current_user.is_contact?(@user_profile)
     %>
-    <%= link_to 'Enviar mensaje', '#', class: 'btn btn-primary pull-right' %>
+    <%= link_to 'Enviar mensaje', '#', class: 'btn btn-primary pull-right', data: { toggle: 'modal', target: '#new-message-modal' } %>
   <% else %>
     <%= link_to 'Contactar', '#', class: 'btn btn-success', data: { toggle: 'modal', target: '#contact-modal' } %>
   <% end %>
@@ -104,8 +104,21 @@
       </div>
     </div>
   </div>
+<% else %>
+  <div id="new-message-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Enviar mensaje a <%= @user_profile.first_name %></h4>
+        </div>
+        <div class="modal-body">
+          <%= render 'messages/form', recipient: @user_profile.user %>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
-
 
 
 

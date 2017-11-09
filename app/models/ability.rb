@@ -9,6 +9,8 @@ class Ability
       can :manage, Property, user_id: user.id
       can [:properties, :add_contact], UserProfile
       can :contacts, UserProfile, user_id: user.contacts
+      can :manage, Message, user_id: user.id
+      can :read, Message, recipient_id: user.id
       can :read, :all
     elsif user.persisted?
       can [:new, :create], UserProfile

@@ -124,6 +124,7 @@
 
 <p>
   <% if can? :manage, @property %>
+    <%= link_to 'Compartir con tus contactos', '#', class: 'btn btn-success' %>
     <%= link_to 'Editar', edit_property_path(@property), class: 'btn btn-primary' %>
     <%= swal_delete_button @property %>
   <% elsif user_signed_in? %>

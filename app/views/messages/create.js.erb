@@ -1,0 +1,7 @@
+<% if @message.persisted? %>
+  $('.modal#new-message-modal').modal('hide');
+  $('.modal#new-message-modal form').replaceWith('<%= j render("messages/form", recipient: @message.recipient) %>');
+  toastr.success('Mesaje enviado con éxito');
+<% else %>
+  $('#new-message-modal .errors-container').html('<%= j render("shared/model_errors", resource: @message) %>');
+<% end %>
