@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @messages = @messages.includes(:user, :recipient)
+    @messages = @messages.includes(user: :user_profile, recipient: :user_profile)
   end
 
   def create
